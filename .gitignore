@@ -1,2 +1,4 @@
 libfeeds.so
+libfeeds.dll
 tests/parse_test
+*.dSYM/

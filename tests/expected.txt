@@ -1,0 +1,8 @@
+atom.xml: "Example Atom", 2 items
+  2026-11-18T07:30:00Z | Older entry | https://example.com/a | tag:example.com,2026:a
+  2026-11-19T20:00:00Z | Newer entry | https://example.com/b | tag:example.com,2026:b
+rss1.xml: "Example RSS 1.0", 1 items
+  2026-11-19T12:00:00Z | Only story | https://example.org/story | https://example.org/story
+rss2.xml: "Example RSS", 2 items
+  2026-11-19T09:00:00Z | First | https://example.com/feature/1 | https://example.com/feature/1
+  2026-11-19T20:04:05Z | Second & newest | https://example.com/news/2 | item-2

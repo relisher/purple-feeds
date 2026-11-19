@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Example RSS</title>
+    <item>
+      <title><![CDATA[Second & newest]]></title>
+      <link>https://example.com/news/2</link>
+      <guid isPermaLink="false">item-2</guid>
+      <pubDate>Thu, 19 Nov 2026 15:04:05 -0500</pubDate>
+    </item>
+    <item>
+      <title>First</title>
+      <link>https://example.com/feature/1</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

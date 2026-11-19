@@ -31,8 +31,10 @@
 #include "xmlnode.h"
 
 #define FEEDS_PLUGIN_ID "prpl-relisher-feeds"
-#define FEEDS_VERSION "0.2.0"
-#define FEEDS_USER_AGENT "Mozilla/5.0 (compatible; purple-feeds/" FEEDS_VERSION ")"
+#ifndef FEEDS_PLUGIN_VERSION
+#define FEEDS_PLUGIN_VERSION "0.2.0"
+#endif
+#define FEEDS_USER_AGENT "Mozilla/5.0 (compatible; purple-feeds/" FEEDS_PLUGIN_VERSION ")"
 
 #define NEWS_BUDDY "news"
 #define NEWS_GROUP "News"
@@ -1123,7 +1125,7 @@ static PurplePluginInfo info = {
     PURPLE_PRIORITY_DEFAULT,
     FEEDS_PLUGIN_ID,
     "Feeds",
-    FEEDS_VERSION,
+    FEEDS_PLUGIN_VERSION,
     "RSS and Atom feeds as a buddy",
     "Collects RSS and Atom feeds into one News buddy; new articles arrive as messages.",
     "Anton Relin",
