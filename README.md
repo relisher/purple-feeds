@@ -1,8 +1,13 @@
 # purple-feeds
 
 A protocol plugin for Pidgin and other libpurple clients that reads RSS and
-Atom feeds. Each feed is a buddy; each new article arrives as a message from
-that buddy, with the headline linked to the article.
+Atom feeds. Each Feeds account has one buddy, **News**, and new articles from
+all of its feeds arrive as messages from that buddy:
+
+> **NYT Top Stories:** Senate Republicans Block Bid to Rein in Trump on Iran War
+
+The headline links to the article. For separate conversations per topic, add
+more than one Feeds account.
 
 ## Building
 
@@ -20,15 +25,34 @@ Restart Pidgin after installing.
 
 ## Setting up
 
-1. Add an account with the **Feeds** protocol. The account name is only a
-   label; there is no password.
-2. Add a buddy to that account for each feed. Enter the feed URL as the
-   buddy's username, and optionally an alias. Without an alias, the buddy
-   takes the feed's own title.
+Add an account with the **Feeds** protocol. The account name is only a label;
+there is no password. The News buddy appears in a News group when the account
+connects.
+
+## Adding and removing feeds
+
+From a menu: right-click News, or open the account's menu under
+Accounts, and choose **Add feed...** or **Remove feed...**. Adding asks for
+the feed address, an optional name (the feed's own title is used without
+one) and an optional link filter.
+
+Or send a message to News:
+
+| Message | Effect |
+| --- | --- |
+| `add <url> [name]` | Adds a feed |
+| `remove <name or url>` | Removes a feed |
+| `filter <name or url> [regex]` | Shows only articles whose link matches the regex; leaving it out clears the filter |
+| `list` | Lists the feeds, their filters and any failing ones |
+| `check` | Checks every feed now |
+| anything else | Shows this list |
+
+A link filter helps with feeds that mix kinds of articles. For example,
+`filter Meduza meduza\.io/news/` keeps only news items.
 
 A new feed shows its five newest articles. After that, only articles the
 plugin has not seen before are shown. Seen article IDs are stored in
-`~/.purple/feeds/`.
+`~/.purple/feeds/`; the feed list is stored on the account.
 
 ## Options
 
@@ -37,17 +61,7 @@ Account options (Modify Account → Advanced):
 - **Check every (minutes)**: how often all feeds are fetched. Default 10.
 - **Articles to show from a new feed**: default 5.
 
-Buddy menu (right-click a feed):
-
-- **Check now** fetches that feed immediately.
-- **Set link filter...** shows only articles whose link matches a regular
-  expression, for example `meduza\.io/news/` to keep only news items from a
-  feed that also carries features.
-
-The account menu has **Check all feeds now**.
-
-A feed whose last fetch failed shows as offline, with the error in its
-status and tooltip.
+Hovering over News lists each feed and whether its last check succeeded.
 
 ## Testing the parser
 
